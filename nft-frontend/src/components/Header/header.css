@@ -1,0 +1,11 @@
+.header {
+    font-size: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 12px 0px 0px;
+    letter-spacing: 12px;
+}
+
+.connect-wallet {
+    font-size: 26px;
+}

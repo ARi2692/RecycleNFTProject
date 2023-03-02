@@ -1,0 +1,123 @@
+.file-card {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--card-border);
+    background-color: var(--text-gardient-3);
+    margin: 20px 0px;
+    padding: 24px 18px;
+    border-radius: 24px;
+    /* border: 3px dashed #cbd5e0; */
+    /* background-color: var(--text-gardient-3); */
+    min-width: 380px;
+    min-height: 230px;
+}
+
+.file-inputs {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.button-sec {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+
+    color: #f3efef;
+    background-color: var(--text-gardient-2);
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 24px;
+    border: none;
+    outline: none;
+    padding: 1em;
+    transition: background-color 0.4s;
+    box-shadow: 0px 8px 10px rgba(149, 157, 165, 0.5);
+
+}
+/* 
+.button-sec:hover {
+        background-color: #f15120;
+} */
+
+.input-container {
+    position: relative;
+    text-align: right;
+    opacity: 0;
+    z-index: 2;
+    cursor: pointer;
+    height: 50px;
+    max-width: 300px;
+}
+
+.main {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 0px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-gardient-2);
+}
+
+.info {
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-gardient-2);
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+  }
+  
+.input-box input {
+border: none;
+border-radius: 10px;
+background-color: var(--text-gardient-3);
+color: #f3efef;
+box-shadow: 0 0 5px rgba(165, 155, 39, 0.5);
+padding: 15px;
+margin-top: 15px;
+width: 850px;
+font-size: 16px;
+transition: box-shadow 0.3s ease-in-out;
+}
+
+.input-box input:focus {
+outline: none;
+box-shadow: 0 0 100px rgba(165, 155, 39, 0.5);
+}
+
+.input-box-last {
+    margin-bottom: 25px;
+}
+
+.button-create {
+    padding: 15px 55px;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 60px;
+    width: max-content;
+    cursor: pointer;
+    color: var(--white);
+    background-color: var(--btn-bg);
+}
+
+.cr-btns {
+    justify-content: space-around;
+    margin-top: 24px;
+}
+
+

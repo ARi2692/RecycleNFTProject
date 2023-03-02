@@ -1,0 +1,45 @@
+.header {
+  font-size: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 12px 0px 0px;
+  letter-spacing: 12px;
+}
+
+.explore-cards {
+  display: grid;
+  grid-template-columns: 400px 400px 400px;
+  justify-content: center;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  margin: 40px 5px 5px 5px;
+}
+
+.tabs button {
+  flex-grow: 1;
+  background-color: #32b8a8;
+  font-family: 'Poppins', sans-serif;
+  font-size: large;
+  border-radius: 10px;
+  border: 50px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.tabs button.active {
+  background-color: #368c82;
+  font-size: 1.2em;
+  /* border-bottom: 2px solid #000; add a border to the bottom of the active tab button  */
+  color: #000; /* change the text color of the active tab button */
+  font-weight: bold; /* make the text of the active tab button bold */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* add a box shadow to the active tab button */
+  transform: translateY(-1px); /* move the active tab button up by 2 pixels */
+}
+
+.exp-btns {
+  margin-top: 60px;
+}
