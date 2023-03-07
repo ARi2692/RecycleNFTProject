@@ -25,7 +25,7 @@ export default function Explore({marketplace, nft}) {
     let items = []
     for (let i = 1; i <= itemCount; i++) {
       const item = await marketplace.items(i)
-      if (!item.sold) {
+      if (item.sold) {
         // get uri url from nft contract
         const uri = await nft.tokenURI(item.tokenId)
         // use uri to fetch the nft metadata stored on ipfs 
@@ -54,7 +54,8 @@ export default function Explore({marketplace, nft}) {
     let items = []
     for (let i = 1; i <= itemCount; i++) {
       const item = await marketplace.items(i)
-      if (item.sold && item.buyer===address) {
+      console.log(item.buyer)
+      if (!item.sold && item.buyer===address) {
         // if ((item.sold && item.buyer==address) || (!item.sold && item.seller==address)) {
         // get uri url from nft contract
         const uri = await nft.tokenURI(item.tokenId)

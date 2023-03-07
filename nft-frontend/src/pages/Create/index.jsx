@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const Create = ({ marketplace, nft }) => {
 
-  const [formParams, updateFormParams] = useState({ name: '', description: '', price: ''});
+  const [formParams, updateFormParams] = useState({ name: '', description: '', price: '', toAddress: ''});
     const [fileURL, setFileURL] = useState(null);
     const ethers = require("ethers");
     const [message, updateMessage] = useState('');
@@ -34,13 +34,13 @@ const Create = ({ marketplace, nft }) => {
 
     //This function uploads the metadata to IPFS
     async function uploadMetadataToIPFS() {
-        const {name, description, price} = formParams;
+        const {name, description, price, toAddress} = formParams;
         //Make sure that none of the fields are empty
-        if( !name || !description || !price || !fileURL)
+        if( !name || !description || !price || !toAddress || !fileURL)
             return;
 
         const nftJSON = {
-            name, description, price, image: fileURL
+            name, description, price, toAddress, image: fileURL
         }
 
         try {
@@ -73,11 +73,10 @@ const Create = ({ marketplace, nft }) => {
             await(await nft.setApprovalForAll(marketplace.address, true)).wait()
             // add nft to marketplace
             const listingPrice = ethers.utils.parseEther(formParams.price.toString())
-            await(await marketplace.makeItem(nft.address, id, listingPrice)).wait()
-
+            await(await marketplace.makeItem(nft.address, id, listingPrice, formParams.toAddress.toString(), { value: listingPrice })).wait()
             alert("Successfully listed your NFT!");
             updateMessage("");
-            updateFormParams({ name: '', description: '', price: ''});
+            updateFormParams({ name: '', description: '', price: '', toAddress: ''});
             window.location.replace("/")
         }
         catch(e) {
@@ -112,6 +111,7 @@ const Create = ({ marketplace, nft }) => {
       <input  value={formParams.name} onChange={e => updateFormParams({...formParams, name: e.target.value})} size="lg" required type="text" placeholder="Name" />
       <input  value={formParams.description} onChange={e => updateFormParams({...formParams, description: e.target.value})} size="lg" required type="textarea" placeholder="Description" />
       <input className='input-box-last' value={formParams.price} onChange={e => updateFormParams({...formParams, price: e.target.value})} step="0.01" size="lg" required type="number" placeholder="Min 0.01 ETH" />
+      <input className='input-box-last' value={formParams.toAddress} onChange={e => updateFormParams({...formParams, toAddress: e.target.value})} step="0.01" size="lg" required type="text" placeholder="Address of seller" />
     </div>
 
     <div className='cr-btns absolute-center' >

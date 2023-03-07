@@ -9,8 +9,8 @@ export const networkConfig = {
     ],
     "80001": [
         {
-            nftAddress: "0xe79e067aD15ea7E6F7Ff92a46f9e63dB54B6aE18", //proxy deployment
-            nftMarketplaceAddress: "0xb68141B4271c9275f6eC0275eD857Ba960B888C1",//proxy
+            nftAddress: "0x43C3c10dfB59DD201c554E00Dc5BFF825Bcc13c7", //proxy deployment
+            nftMarketplaceAddress: "0x0345e50660C10AECd2884056fEAd4d5Aea8F95dE",//proxy 0xb68141B4271c9275f6eC0275eD857Ba960B888C1 
             networkName: "Mumbai Testnet"
         },
     ],

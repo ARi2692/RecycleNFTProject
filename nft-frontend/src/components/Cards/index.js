@@ -22,7 +22,10 @@ const Cards = ({ index, item, marketplace }) => {
             <button onClick={() => buyMarketItem(item)} className="button-buy">
             Buy for {ethers.utils.formatEther(item.totalPrice)} ETH
           </button>
-          }          
+          }   
+          { index===1 &&
+            <h4>Bought for {ethers.utils.formatEther(item.totalPrice)} ETH</h4>
+          }       
         </div>
       </div>
     </div>
