@@ -51,6 +51,7 @@ const App = () => {
   const { address } = useAccount();
   const [nft, setNFT] = useState({})
   const [marketplace, setMarketplace] = useState({})
+  const [owner, setOwner] = useState(false)
 
   useEffect(() => {
     web3Handler();
@@ -77,6 +78,10 @@ const App = () => {
     setNFT(nft)
     console.log(marketplace)
     setMarketplace(marketplace)
+    const marketplaceOwner = await marketplace.feeAccount()
+    if (marketplaceOwner===address) {
+      setOwner(true)
+    }
   }
 
   return (
@@ -94,8 +99,15 @@ const App = () => {
         >
           <Header />
           <Routes>
+          {owner && 
+          <>
             <Route exact path="/" element={<Create marketplace={marketplace} nft={nft} />} />
             <Route exact path="/explore" element={<Explore marketplace={marketplace} nft={nft} />} />
+            </>
+          }
+          {!owner && 
+            <Route exact path="/" element={<Explore marketplace={marketplace} nft={nft} />} />
+          }
           </Routes>
           <Footer />
         </RainbowKitProvider>
